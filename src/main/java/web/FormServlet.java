@@ -1,4 +1,5 @@
 package web;
+import dao.UserDao;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,13 +21,20 @@ public class FormServlet extends HttpServlet {
 
         PrintWriter write = response.getWriter();
 
+        /*UserModel object */
+        UserModel userModel = new UserModel();
 
-/*UserModel object*/
-        UserModel user = new UserModel();
 
-       user.setName(name);
+        /*set input data to userModel*/
+        userModel.setName(name);
+        userModel.setEmail(email);
 
-       write.println(user.getName());
+
+        /*send data to userDao method called add(parameter)*/
+        UserDao userDao = new UserDao();
+
+        String myValue = userDao.addUser(userModel);
+        System.out.println(myValue);
 
 
     }
