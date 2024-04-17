@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin:0;
+}
+
+.inner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outer{
+    width: 60%;
+    height: 500px;
+}
